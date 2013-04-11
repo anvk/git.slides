@@ -9,21 +9,11 @@
 		<meta name="description" content="A tiny presentation which should explain some of your day-to-day git routines.">
 		<meta name="author" content="Alexey Novak">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -44,6 +34,12 @@
 						<small>Created by <a href="https://github.com/anvk">Alexey Novak</a> / <a href="https://twitter.com/twitanvk">@twitanvk</a></small>
 					</p>
 				</section>
+				
+				<section>
+			    <h2>What commands should I use??!!</h2>
+						<p>When should I use <strong>"git lost"</strong> or <strong>"git life"</strong> or <strong>"git cherry-pick"</strong>?</li>
+						<p class="fragment">Do not panic, this presentation should give you an idea what to use and when.</p>
+			  </section>
 
 				<section>
 					<section>
@@ -52,6 +48,7 @@
   						From the little steps to the big git-based projects
   					</p>
   				</section>
+  				
   				<section>
   					<h2>Setting up a new directory</h2>
   					<pre><code contenteditable>
@@ -64,12 +61,14 @@
   git remote add origin httplink-to-the-remote
   					</code></pre>
   				</section>
+  				
   				<section>
   					<h2>Keep track of changes in the repo</h2>
   					<pre><code contenteditable>
   git fetch origin
   					</code></pre>
   				</section>
+  				
   				<section>
   					<h2>Keep your local code updated</h2>
   					<pre><code contenteditable>
@@ -89,6 +88,7 @@
   					</code></pre>
   					<p><small>It is just a happy convenience that we have local branch named master ;)</small></p>
   				</section>
+  				
   				<section>
   					<h2>What remotes and branches do we have?</h2>
   					<pre><code contenteditable>
@@ -101,6 +101,7 @@
   git checkout myLocalBranch
   					</code></pre>
   				</section>
+  				
   				<section>
   					<h2>Wait! I want to create local branch identical to the remote branch</h2>
   					<p><small>Do not worry</small></p>
@@ -112,6 +113,7 @@
   git checkout -b staging origin/staging
   					</code></pre>
   				</section>
+  				
   				<section>
   					<h2>Nah! Actually I wanted to create a new local branch based on another one</h2>
   					<p><small>Aha! Gotcha, not a big deal</small></p>
@@ -127,6 +129,7 @@
   git checkout -b newFeatureBranch
   					</code></pre>
   				</section>
+  				
   				<section>
   					<h2>Branch deletion</h2>
   					<pre><code contenteditable>
@@ -199,7 +202,7 @@
   					<pre><code contenteditable>
   git push origin master
   					</code></pre>
-  					<p class="fragment">and of course there should be the whole merging process and blah blah blah...</p>
+  					<p class="fragment">and of course there should be the whole merging process and blah blah blah... we will get there</p>
   				</section>
   				<section>
   					<h2>What are those changes? Raaaargh! (Reset)</h2>
@@ -222,6 +225,15 @@
   					</p>
   				</section>
 				</section>
+				
+				<section>
+			    <h2>Other cool commands worth checking out</h2>
+			    <ul>
+						<li class="fragment"><code>git stash</code></li>
+						<li class="fragment"><code>git cherry-pick</code></li>
+						<li class="fragment"><code>git rebase</code></li>
+				  </ul>
+			  </section>
 				
 				<section>
 					<section>
