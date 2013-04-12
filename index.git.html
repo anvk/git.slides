@@ -27,6 +27,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
+        <!-- First slide start -->
 				<section>
 					<h1>GIT</h1>
 					<h3>Its common practices and usage</h3>
@@ -34,13 +35,49 @@
 						<small>Created by <a href="https://github.com/anvk">Alexey Novak</a> / <a href="https://twitter.com/twitanvk">@twitanvk</a></small>
 					</p>
 				</section>
-				
+
+        <!-- Second intro slide -->
 				<section>
 			    <h2>What commands should I use??!!</h2>
-						<p>When should I use <strong>"git lost"</strong> or <strong>"git life"</strong> or <strong>"git cherry-pick"</strong>?</li>
-						<p class="fragment">Do not panic, this presentation should give you an idea what to use and when.</p>
+					<p>When should I use <strong>"git lost"</strong> or <strong>"git life"</strong> or <strong>"git cherry-pick"</strong>?</p>
+					<p class="fragment">Do not panic, this presentation should give you an idea what to use and when.</p>
 			  </section>
 
+        <!-- Git configuring slides -->
+        <section>
+          <section>
+            <h2>First time configuring</h2>
+            <p>You better do it if you have not done it yet</p>
+          </section>
+
+          <section>
+            <h2>Setting your username and email for future commits</h2>
+            <pre><code contenteditable>
+  git config --global user.name "John Doe"
+  git config --global user.email johndoe@example.com
+            </code></pre>
+            <p>Helps to find you code in history and tells everyone who wrote that amazing chunk of code</p>
+          </section>
+
+          <section>
+            <h2>Git autocompletion</h2>
+            <p><small>Get the script first</small></p>
+            <pre><code contenteditable>
+  cd ~
+  curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+            </code></pre>
+            <p><small>Add those lines to your ~/.bash_profile</small></p>
+            <pre><code contenteditable>
+  if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+  fi
+            </code></pre>
+            <p><small>Windows users can do all those changes through GitBash or other Linux-like consoles</small></p>
+            <p><small>This change is a pure joy for anyone who has to use git CLI</small></p>
+          </section>
+        </section>
+
+        <!--Git basics slides -->
 				<section>
 					<section>
   					<h2>GIT Basics (branches and remotes)</h2>
@@ -48,7 +85,7 @@
   						From the little steps to the big git-based projects
   					</p>
   				</section>
-  				
+
   				<section>
   					<h2>Setting up a new directory</h2>
   					<pre><code contenteditable>
@@ -61,14 +98,15 @@
   git remote add origin httplink-to-the-remote
   					</code></pre>
   				</section>
-  				
+
   				<section>
   					<h2>Keep track of changes in the repo</h2>
   					<pre><code contenteditable>
   git fetch origin
   					</code></pre>
+            <p><small>It does not effect your local files. Do it often to be aware of contributions.</small></p>
   				</section>
-  				
+
   				<section>
   					<h2>Keep your local code updated</h2>
   					<pre><code contenteditable>
@@ -88,7 +126,7 @@
   					</code></pre>
   					<p><small>It is just a happy convenience that we have local branch named master ;)</small></p>
   				</section>
-  				
+
   				<section>
   					<h2>What remotes and branches do we have?</h2>
   					<pre><code contenteditable>
@@ -101,7 +139,7 @@
   git checkout myLocalBranch
   					</code></pre>
   				</section>
-  				
+
   				<section>
   					<h2>Wait! I want to create local branch identical to the remote branch</h2>
   					<p><small>Do not worry</small></p>
@@ -113,7 +151,7 @@
   git checkout -b staging origin/staging
   					</code></pre>
   				</section>
-  				
+
   				<section>
   					<h2>Nah! Actually I wanted to create a new local branch based on another one</h2>
   					<p><small>Aha! Gotcha, not a big deal</small></p>
@@ -129,7 +167,7 @@
   git checkout -b newFeatureBranch
   					</code></pre>
   				</section>
-  				
+
   				<section>
   					<h2>Branch deletion</h2>
   					<pre><code contenteditable>
@@ -138,8 +176,9 @@
   					<p><small>Take a look at my Big D. It is all matter of taste and size does not matter so far if you know what you are doing.</small></p>
   				</section>
 				</section>
-				
-				<section>
+
+				<!--Git commiting slides -->
+        <section>
 					<section>
   					<h2>GIT Basics (committing)</h2>
   					<p>
@@ -158,7 +197,7 @@
   				<p><small>Will show you all changes you have done. They are better be good!</small></p>
   				<p class="fragment">Cannot stress enough - <span class="fragment highlight-red">check what branch are you on before making any changes</span></p>
   				</section>
-  				
+
   				<section>
   					<h2>What do you want to change? (Add/Stage)</h2>
   					<pre><code contenteditable>
@@ -170,7 +209,7 @@
   					</code></pre>
   				<p><blockquote cite="https://www.kernel.org/pub/software/scm/git/docs/git-add.html">This command updates the index using the current content found in the working tree, to prepare the content staged for the next commit.</blockquote><a href="https://www.kernel.org/pub/software/scm/git/docs/git-add.html">git add documentation</a></p>
   				</section>
-  				
+
   				<section>
   					<h2>Removing files from git. (Remove)</h2>
   					<pre><code contenteditable>
@@ -181,7 +220,7 @@
   git rm path/folder/
   					</code></pre>
   				</section>
-  				
+
   				<section>
   					<h2>Ready to bundle all your changes? (Commit)</h2>
   					<pre><code contenteditable>
@@ -216,7 +255,8 @@
   					<p>Add them to .gitignore</p>
   				</section>
 				</section>
-				
+
+        <!--Git merging slides -->
 				<section>
 					<section>
   					<h2>GIT Advanced (merging)</h2>
@@ -225,8 +265,9 @@
   					</p>
   				</section>
 				</section>
-				
-				<section>
+
+				<!--Git other commands -->
+        <section>
 			    <h2>Other cool commands worth checking out</h2>
 			    <ul>
 						<li class="fragment"><code>git stash</code></li>
@@ -234,13 +275,14 @@
 						<li class="fragment"><code>git rebase</code></li>
 				  </ul>
 			  </section>
-				
+
+        <!--Git GUI -->
 				<section>
 					<section>
   					<h2>GIT GUI</h2>
   					<p>Your tool to simplify your work even further...</p>
 				  </section>
-				  
+
 				  <section>
   					<h2>GIT GUI cont.</h2>
   					<p>Helping to visualize your ugly console commands</p>
@@ -253,7 +295,7 @@
   						<li class="fragment">And more...</li>
   					</ul>
 				  </section>
-				  
+
 				  <section>
 				    <h2>Some apps worth to try</h2>
   					<ul>
@@ -263,7 +305,7 @@
   						<li>Maybe some other of your choice</li>
   					</ul>
 				  </section>
-				  
+
 				  <section>
 				    <h2>Great interactive tutorial in 15 minutes</h2>
   					<p><a href="http://try.github.io/levels/1/challenges/1">GIT interactive</a></p>
@@ -272,13 +314,14 @@
   					<img width="90" height="110" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSoMifxZT58Lcg61AF7bjrx01wBZpPT12APNk-LlVbMmeiU6Net" alt="nerd"></p>
 				  </section>
 				</section>
-				
-				<section>
+
+				<!--Git questions slide -->
+        <section>
 			    <h2>THE END</h2>
 			    <p><img width="640" height="480" src="http://yotamak.blogs.com/.a/6a00d8341c145e53ef0133ec837039970b-800wi" alt="Joker with rainbow"></p>
 					<p>Any questions?</p>
 			  </section>
-				
+
 				</div>
 		</div>
 
