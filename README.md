@@ -1,0 +1,1 @@
+These are my presentation slides to outline some of the key commands and concepts for a productive usage of GIT for small and large scale projects.
