@@ -1,378 +1,506 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+    <title>GIT - Distributed version control system. Common practices and usage.</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+    <meta name="description" content="A tiny presentation which should explain some of your day-to-day git routines.">
+    <meta name="author" content="Alexey Novak">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+  <body>
 
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
+    <div class="reveal">
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
 
-	<body>
+        <!-- First slide start -->
+        <section>
+          <h1>GIT</h1>
+          <h3>Its common practices and usage</h3>
+          <p>
+            <small>Created by <a href="https://github.com/anvk">Alexey Novak</a> / <a href="https://twitter.com/twitanvk">@twitanvk</a></small>
+          </p>
+        </section>
 
-		<div class="reveal">
+        <!-- Second intro slide -->
+        <section>
+          <h2>What commands should I use??!!</h2>
+          <p>When should I use <strong>"git lost"</strong> or <strong>"git life"</strong> or <strong>"git cherry-pick"</strong>?</p>
+          <p class="fragment">Do not panic, this presentation should give you an idea what to use and when.</p>
+        </section>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
+        <!-- Git configuring slides -->
+        <section>
+          <section>
+            <h2>First time configuring</h2>
+            <p>You better do it if you have not done it yet</p>
+          </section>
 
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
-				</section>
+          <section>
+            <h2>Setting your username and email for future commits</h2>
+            <pre><code contenteditable>
+  git config --global user.name "John Doe"
+  git config --global user.email johndoe@example.com
+            </code></pre>
+            <p>Helps to find you code in history and tells everyone who wrote that amazing chunk of code</p>
+          </section>
 
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
+          <section>
+            <h2>Git autocompletion</h2>
+            <p><small>Get the script first</small></p>
+            <pre><code contenteditable>
+  cd ~
+  curl https://raw.github.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+            </code></pre>
+            <p><small>Add those lines to your ~/.bash_profile</small></p>
+            <pre><code contenteditable>
+  if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+  fi
+            </code></pre>
+            <p><small>Windows users can do all those changes through GitBash or other Linux-like consoles</small></p>
+            <p><small>This change is a pure joy for anyone who has to use git CLI</small></p>
+          </section>
+        </section>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
+        <!--Git basics slides -->
+        <section>
+          <section>
+            <h2>GIT Basics (branches and remotes)</h2>
+            <p>
+              From the little steps to the big git-based projects
+            </p>
+          </section>
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#" class="navigate-down">down</a>.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+          <section>
+            <h2>Setting up a new directory</h2>
+            <pre><code contenteditable>
+  mkdir my-project
+  ...
+  cd ./my-project
+  ...
+  git init
+  ...
+  git remote add origin httplink-to-the-remote
+            </code></pre>
+          </section>
 
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview. Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
+          <section>
+            <h2>Keep track of changes in the repo</h2>
+            <pre><code contenteditable>
+  git fetch origin
+            </code></pre>
+            <p><small>It does not effect your local files. Try to do it often to be aware of contributions.</small></p>
+          </section>
 
-				<section>
-					<h2>rvl.io</h2>
-					<p>
-						If you don't like writing slides in HTML you can use the online editor <a href="http://www.rvl.io" target="_blank">rvl.io</a>.
-					</p>
-				</section>
+          <section>
+            <h2>What remotes and branches do we have?</h2>
+            <pre><code contenteditable>
+  git remote
+  ...
+  git branch
+            </code></pre>
+            <p><small>Switching between branches</small></p>
+            <pre><code contenteditable>
+  git checkout myLocalBranch
+            </code></pre>
+          </section>
 
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
-					</p>
-				</section>
+          <section>
+            <h2>Keep your local code updated</h2>
+            <pre><code contenteditable>
+  git fetch remotename
+  ...
+  git checkout myLocalBranch
+  ...
+  git pull remoteName myRemoteBranch
+            </code></pre>
+            <p><small>Let me show you something more familiar</small></p>
+            <pre><code contenteditable>
+  git fetch origin
+  ...
+  git checkout master
+  ...
+  git pull origin master
+            </code></pre>
+            <p><small>It is just a happy convenience that we have local branch named master ;)</small></p>
+          </section>
 
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
+          <section>
+            <h2>Wait! I want to create local branch identical to the remote branch</h2>
+            <p><small>Do not worry</small></p>
+            <pre><code contenteditable>
+  git checkout -b myLocalBranch remote/myRemoteBranch
+            </code></pre>
+            <p><small>Let me show you something more familiar</small></p>
+            <pre><code contenteditable>
+  git checkout -b staging origin/staging
+            </code></pre>
+          </section>
 
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
+          <section>
+            <h2>Nah! Actually I wanted to create a new local branch based on another one</h2>
+            <p><small>Aha! Gotcha, not a big deal</small></p>
+            <pre><code contenteditable>
+  git checkout myLocalBranch
+  ...
+  git checkout -b myNewBranch
+            </code></pre>
+            <p><small>Let me show you something more familiar</small></p>
+            <pre><code contenteditable>
+  git checkout master
+  ...
+  git checkout -b newFeatureBranch
+            </code></pre>
+          </section>
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
+          <section>
+            <h2>Branch deletion</h2>
+            <pre><code contenteditable>
+  git branch -D myLocalBranch
+            </code></pre>
+            <p><small>Take a look at my Big D. It is all matter of taste and size does not matter so far if you know what you are doing.</small></p>
+          </section>
 
-						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+          <section>
+            <h4>Make only good names for your branches. Reflect your changes in the name.</h4>
+            <h4>Keep a separate branch for every feature or every fix.</h4>
+            <h4>Use branches. Do not just stick to one "dev" branch.</h4>
+            <p class="fragment">If not, then maybe it is time to switch back to SVN why to bother with GIT ?</p>
+          </section>
+        </section>
 
-							<section data-markdown>
-							  ## Markdown support
+        <!--Git commiting slides -->
+        <section>
+          <section>
+            <h2>GIT Basics (committing)</h2>
+            <p>
+              The process of creation
+            </p>
+          </section>
 
-							  For those of you who like that sort of thing.
-							  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-							</section>
-					</script>
-				</section>
+          <section>
+            <h2>Step 0: Make a branch</h2>
+            <p>If you have not worked on "that" feature/fix before then create a branch for it.</p>
+          </section>
 
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=cube#/transitions">Cube</a> -
-						<a href="?transition=page#/transitions">Page</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a> -
-						<a href="?transition=linear#/transitions">Linear</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?#/transitions">Default</a>
-					</p>
-				</section>
+          <section>
+            <h2>Step 1: Make changes</h2>
+            <p class="fragment">Cannot stress enough - <span class="fragment highlight-red">check what branch are you on before making any changes</span></p>
+          </section>
 
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-						<a href="?theme=sky#/themes">Sky</a> -
-						<a href="?theme=beige#/themes">Beige</a> -
-						<a href="?theme=simple#/themes">Simple</a> -
-						<a href="?theme=serif#/themes">Serif</a> -
-						<a href="?theme=night#/themes">Night</a> -
-						<a href="?#/themes">Default</a>
-					</p>
-					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
-					</p>
-				</section>
+          <section>
+            <h2>Step 2:Check status of your local branch</h2>
+            <pre><code contenteditable>
+  git status
+            </code></pre>
+            <p><small>Will show you all untracked, changed, removed and created files</small></p>
+            <pre><code contenteditable>
+  git diff
+            </code></pre>
+            <p><small>Will show you all changes you have done. They are better be good!</small></p>
+          </section>
 
-				<section>
-					<section data-state="alert">
-						<h2>Global State</h2>
-						<p>
-							Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-							will be added as a class to the document element when the slide is open. This lets you
-							apply broader style changes, like switching the background.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="blackout">
-						<h2>"blackout"</h2>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="soothe">
-						<h2>"soothe"</h2>
-						<a href="#" class="image navigate-next">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(-90deg);">
-						</a>
-					</section>
-				</section>
+          <section>
+            <h2>Step 3a: Mark files for a commit (Add/Stage)</h2>
+            <pre><code contenteditable>
+  git add fileName
+  ...
+  git add path/folder/fileName
+  ...
+  git add path/folder/
+            </code></pre>
+            <p><blockquote cite="https://www.kernel.org/pub/software/scm/git/docs/git-add.html">This command updates the index using the current content found in the working tree, to prepare the content staged for the next commit.</blockquote><a href="https://www.kernel.org/pub/software/scm/git/docs/git-add.html">git add documentation</a></p>
+          </section>
 
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
+          <section>
+            <h2>Step 3b: Unmarking file (Reset)</h2>
+            <pre><code contenteditable>
+  git reset path/folder/fileName
+            </code></pre>
+            <p><small>Will unstage the file so that it would not be commited</small></p>
+            <pre><code contenteditable>
+  git checkout -- path/folder/fileName
+            </code></pre>
+            <p><small>Will reset file changes to the last commit</small></p>
+          </section>
 
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						The nice thing about standards is that there are so many to choose from</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
-					</blockquote>
-				</section>
+          <section>
+            <h2>Step 3c: Removing files from git. (Remove)</h2>
+            <pre><code contenteditable>
+  git rm fileName
+  ...
+  git rm path/folder/fileName
+  ...
+  git rm path/folder/
+            </code></pre>
+          </section>
 
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
+          <section>
+            <h2>Step 4: Bundle your changes? (Commit)</h2>
+            <pre><code contenteditable>
+  git commit -m "some message"
+            </code></pre>
+            <p><small>"git commit -a" evil or a misunderstood command?</a></small></p>
+          </section>
 
-    var nodes = document.querySelectorAll( selector );
+          <section>
+            <h2>Step 5: It is the time of sharing. (Push)</h2>
+            <pre><code contenteditable>
+  git push remote myLocalBranch
+            </code></pre>
+            <p><small>Let me show you something more familiar</small></p>
+            <pre><code contenteditable>
+  git push origin myNewAwesomeFeature
+            </code></pre>
+            <p><small>Or something even more familiar</small></p>
+            <pre><code contenteditable>
+  git push origin master
+            </code></pre>
+            <p class="fragment">of course it is the easiest scenario and there are more complex usecases... we will get there</p>
+          </section>
 
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
+          <section>
+            <h2>Reset ALL changes</h2>
+            <pre><code contenteditable>
+  git reset --hard
+            </code></pre>
+            <p><small>Maybe stash would work for you better?</small></p>
+          </section>
+        </section>
 
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
+        <!--Git merging slides -->
+        <section>
+          <section>
+            <h2>GIT Ninjitsu (Advanced)</h2>
+            <p>
+              Scenario: Creating a new feature and pushing it to master branch
+            </p>
+          </section>
 
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
+          <section>
+            <h2>Scenario:</h2>
+            <pre><code contenteditable>   origin      master: o-?</code></pre>
+            <pre><code contenteditable>   local     * master: o</code></pre>
+            <pre><code contenteditable>
+  git checkout master
+            </code></pre>
+            <p><small>Switch the branch to master since we want to create our new feature based on it</small></p>
+          </section>
 
-				<section>
-					<section>
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
+          <section>
+            <h2>Scenario:</h2>
+            <pre><code contenteditable>   origin      master: o-?</code></pre>
+            <pre><code contenteditable>   local     * master: o</code></pre>
+            <pre><code contenteditable>
+  git checkout master
+  git fetch origin
+            </code></pre>
+            <p><small>Update your local stack with knowledge about remote</small></p>
+          </section>
 
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
+          <section>
+            <h2>Scenario:</h2>
+            <pre><code contenteditable>   origin      master: o-o</code></pre>
+            <pre><code contenteditable>   local     * master: o</code></pre>
+            <pre><code contenteditable>
+  git checkout master
+  git fetch origin
+  git pull origin master
+            </code></pre>
+            <p><small>Update your local master branch with changes from remote</small></p>
+          </section>
 
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-					</a>
-				</section>
+          <section>
+            <h2>Scenario:</h2>
+            <pre><code contenteditable>   origin      master: o-o</code></pre>
+            <pre><code contenteditable>   local     * master: o-o</code></pre>
+            <pre><code contenteditable>
+  git checkout master
+  git fetch origin
+  git pull origin master
+  git checkout -b newFeature
+            </code></pre>
+            <p><small>Create new branch for your feature/change</small></p>
+          </section>
 
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
-				</section>
+          <section>
+            <h2>Scenario:</h2>
+            <pre><code contenteditable>   origin      master: o-o-?</code></pre>
+            <pre><code contenteditable>   local       master: o-o
+             * newFeature: o-o</code></pre>
+            <pre><code contenteditable>
+  make changes
+  git add blah
+  git commit -m "blah one more time"
+  ...
+            </code></pre>
+            <p><small>Make and commit new changes</small></p>
+          </section>
 
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
-					</p>
-				</section>
+          <section>
+            <h2>Scenario:</h2>
+            <pre><code contenteditable>   origin      master: o-o-?</code></pre>
+            <pre><code contenteditable>   local       master: o-o
+             * newFeature: o-o-x-x-x</code></pre>
+            <pre><code contenteditable>
+  git checkout master
+  git fetch origin
+  git pull origin master
+            </code></pre>
+            <p><small>Update your master one more time before push since there might be changes since the last time you updated your local stack</small></p>
+          </section>
 
-				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-						<li><a href="http://hakim.se/projects/reveal-js">Leave feedback on my site</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-					</ul>
-				</section>
+          <section>
+            <h2>Scenario:</h2>
+            <pre><code contenteditable>   origin      master: o-o-o</code></pre>
+            <pre><code contenteditable>   local     * master: o-o-o
+               newFeature: o-o-x-x-x</code></pre>
+            <pre><code contenteditable>
+  git merge newFeature
+  if there is a conflict then resolve it
+  Resolution will be a separate commit
+  git push origin master
+            </code></pre>
+            <p><small>Merge your branch into master and push it to the remote</small></p>
+          </section>
 
-				<section>
-					<h2>It's free</h2>
-					<p>
-						reveal.js and <a href="http://www.rvl.io">rvl.io</a> are entirely free but if you'd like to support the projects you can donate below.
-						Donations will go towards hosting and domain costs.
-					</p>
-					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-						<input type="hidden" name="cmd" value="_donations">
-						<input type="hidden" name="business" value="hakim.elhattab@gmail.com">
-						<input type="hidden" name="lc" value="US">
-						<input type="hidden" name="item_name" value="reveal.js / rvl.io">
-						<input type="hidden" name="no_note" value="0">
-						<input type="hidden" name="currency_code" value="USD">
-						<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-					</form>
-				</section>
+          <section>
+            <h2>Scenario:</h2>
+            <pre><code contenteditable>   origin      master: o-o-o-y</code></pre>
+            <pre><code contenteditable>   local     * master: o-o-o-y
+               newFeature: o-o-x-x-x</code></pre>
+            <p><small>"y" will be a merge commit for your master which represents "x-x-x" going into your master</small></p>
+          </section>
+        </section>
 
-				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
-				</section>
+        <!--Git other commands -->
+        <section>
+          <section>
+            <h2>Other cool commands worth checking out</h2>
+            <ul>
+              <li class="fragment"><code>git stash</code>&emsp;&emsp;(allows to save your changes without a commit)</li>
+              <li class="fragment"><code>git cherry-pick</code>&emsp;&emsp;(allows to move specific commits from branch to branch)</li>
+              <li class="fragment"><code>git rebase</code>&emsp;&emsp;(just like cherry-pick but for multiple commits. Also allows to change commit messages)</li>
+            </ul>
+          </section>
 
-			</div>
+          <section>
+            <h2>Ignore files in your Project folder</h2>
+            <p>Add them to .gitignore</p>
+            <p>Files must be in gitignore and untracked in order to be ignored</p>
+          </section>
 
-		</div>
+          <section>
+            <h2>Ignore files in your Project folder</h2>
+            <p>Example of .gitignore</p>
+            <pre><code contenteditable>
+  *.exe
+  *.db
+  Web.config
+  App_Code/
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+  !App_code/MyImportantClass.cs
+  !start.exe
+            </code></pre>
+            <p><small>Use ! to make exceptions</small></p>
+            <p><small>Just like in coding - keep your .gitignore file as minimal as possible</small></p>
+          </section>
+        </section>
 
-		<script>
+        <!--Git GUI -->
+        <section>
+          <section>
+            <h2>GIT GUI</h2>
+            <p>Your tool to simplify your work even further...</p>
+          </section>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+          <section>
+            <h2>GIT GUI cont.</h2>
+            <p>Helping to visualize your ugly console commands</p>
+            <p class="fragment">Well not only that to be honest ;)</p>
+            <ul>
+              <li class="fragment">Speeds up your work (when you understand the basics)</li>
+              <li class="fragment">Easy to see and resolve conflicts</li>
+              <li class="fragment">Helps to do very complicated commands like rebase or cherry-pick</li>
+              <li class="fragment">Makes easier to view changes made by other people</li>
+              <li class="fragment">And more...</li>
+            </ul>
+          </section>
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+          <section>
+            <h2>Some apps worth to try</h2>
+            <ul>
+              <li><a href="http://www.sourcetreeapp.com/">SourceTree by Atlassian</a> (<strong>strongly</strong> recommend)</li>
+              <li><a href="http://windows.github.com/">github:windows by GitHub</a></li>
+              <li><a href="https://code.google.com/p/gitextensions/">Git Extensions</a></li>
+              <li>Maybe some other of your choice</li>
+            </ul>
+          </section>
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
+          <section>
+            <h2>Great interactive tutorial in 15 minutes</h2>
+            <p><a href="http://try.github.io/levels/1/challenges/1">GIT interactive</a></p>
+            <p class="fragment"><small>It is fun and educational. Do not be lazy and try it out!
+            But it will require a github account to complete. Perfect timing to create if you do not have one.</small>
+            <img width="90" height="110" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSoMifxZT58Lcg61AF7bjrx01wBZpPT12APNk-LlVbMmeiU6Net" alt="nerd"></p>
+          </section>
+        </section>
 
-		</script>
+        <!--Git questions slide -->
+        <section>
+          <h2>THE END</h2>
+          <p><img width="640" height="480" src="http://yotamak.blogs.com/.a/6a00d8341c145e53ef0133ec837039970b-800wi" alt="Joker with rainbow"></p>
+          <p>Any questions?</p>
+        </section>
 
-	</body>
+        </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
 </html>
