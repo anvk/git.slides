@@ -15,6 +15,11 @@
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
@@ -30,7 +35,7 @@
         <!-- First slide start -->
         <section>
           <h1>GIT</h1>
-          <h3>Its common practices and usage</h3>
+          <h3>Common practices and usage</h3>
           <p>
             <small>Created by <a href="https://github.com/anvk">Alexey Novak</a> / <a href="https://twitter.com/twitanvk">@twitanvk</a></small>
           </p>
@@ -97,6 +102,7 @@
   ...
   git remote add origin httplink-to-the-remote
             </code></pre>
+            <p><small>Most of the time need to be done only once... unless you messed remote link</small></p>
           </section>
 
           <section>
@@ -104,7 +110,7 @@
             <pre><code contenteditable>
   git fetch origin
             </code></pre>
-            <p><small>It does not effect your local files. Try to do it often to be aware of contributions.</small></p>
+            <p><small>It does not effect your local files. Try to do it often to be aware of changes on the remote.</small></p>
           </section>
 
           <section>
@@ -114,10 +120,11 @@
   ...
   git branch
             </code></pre>
-            <p><small>Switching between branches</small></p>
+            <p><small>List existing branches and remotes</small></p>
             <pre><code contenteditable>
   git checkout myLocalBranch
             </code></pre>
+            <p><small>Switching between branches</small></p>
           </section>
 
           <section>
@@ -129,7 +136,7 @@
   ...
   git pull remoteName myRemoteBranch
             </code></pre>
-            <p><small>Let me show you something more familiar</small></p>
+            <p><small>Let me show you something more familiar -></small></p>
             <pre><code contenteditable>
   git fetch origin
   ...
@@ -137,30 +144,30 @@
   ...
   git pull origin master
             </code></pre>
-            <p><small>It is just a happy convenience that we have local branch named master ;)</small></p>
+            <p><small>We just merged latest changes from remote master branch into our local master branch</small></p>
           </section>
 
           <section>
-            <h2>Wait! I want to create local branch identical to the remote branch</h2>
-            <p><small>Do not worry</small></p>
+            <h2>I want to create a local branch based on the existing remote branch</h2>
             <pre><code contenteditable>
   git checkout -b myLocalBranch remote/myRemoteBranch
             </code></pre>
-            <p><small>Let me show you something more familiar</small></p>
+            <p><small>Let me show you something more familiar -></small></p>
             <pre><code contenteditable>
   git checkout -b staging origin/staging
             </code></pre>
+            <p><small>You create your branch once until the moment you delete or rename it</small></p>
           </section>
 
           <section>
-            <h2>Nah! Actually I wanted to create a new local branch based on another one</h2>
+            <h2>Nope! Actually I wanted to create a branch based on a local one</h2>
             <p><small>Aha! Gotcha, not a big deal</small></p>
             <pre><code contenteditable>
   git checkout myLocalBranch
   ...
   git checkout -b myNewBranch
             </code></pre>
-            <p><small>Let me show you something more familiar</small></p>
+            <p><small>Let me show you something more familiar -></small></p>
             <pre><code contenteditable>
   git checkout master
   ...
@@ -173,6 +180,7 @@
             <pre><code contenteditable>
   git branch -D myLocalBranch
             </code></pre>
+            <p><small>It will remove your branch without any questions. Small d will prevent branch from deletion if its changes are not present in the master</small></p>
             <p><small>Take a look at my Big D. It is all matter of taste and size does not matter so far if you know what you are doing.</small></p>
           </section>
 
@@ -195,7 +203,7 @@
 
           <section>
             <h2>Step 0: Make a branch</h2>
-            <p>If you have not worked on "that" feature/fix before then create a branch for it.</p>
+            <p>If you have not worked on "this" feature/fix before then create a branch for it.</p>
           </section>
 
           <section>
@@ -213,6 +221,20 @@
   git diff
             </code></pre>
             <p><small>Will show you all changes you have done. They are better be good!</small></p>
+          </section>
+
+          <section>
+            <h2>Step 3: A general idea for your commit</h2>
+            <p><small>Think of "git add" as a process of packing your items into a box ready to be sent to your friends.</a></small></p>
+            <p><small>While "git commit" would be a process of sealing the box.</a></small></p>
+            <p><small>While "git push" would be you sending.</a></small></p>
+          </section>
+
+          <section>
+            <h2>Step 3: A general idea for your commit</h2>
+            <p><small>You can put many items in a box. (add)</a></small></p>
+            <p><small>You look only into one box at a time. (commit)</a></small></p>
+            <p><small>You can send many boxes. (push)</a></small></p>
           </section>
 
           <section>
@@ -255,11 +277,12 @@
             <pre><code contenteditable>
   git commit -m "some message"
             </code></pre>
-            <p><small>"git commit -a" evil or a misunderstood command?</a></small></p>
+            <p><small>"git commit -a" a pure evil or a misunderstood command?</a></small></p>
           </section>
 
           <section>
             <h2>Step 5: It is the time of sharing. (Push)</h2>
+            <p><small>This command will push your current local branch to the remote.</small></p>
             <pre><code contenteditable>
   git push remote myLocalBranch
             </code></pre>
@@ -279,6 +302,7 @@
             <pre><code contenteditable>
   git reset --hard
             </code></pre>
+            <p><small>It will reset your local file sytem to HEAD</a></small></p>
             <p><small>Maybe stash would work for you better?</small></p>
           </section>
         </section>
@@ -299,7 +323,7 @@
             <pre><code contenteditable>
   git checkout master
             </code></pre>
-            <p><small>Switch the branch to master since we want to create our new feature based on it</small></p>
+            <p>Switch the branch to master since we want to create our new feature based on it</p>
           </section>
 
           <section>
@@ -310,7 +334,7 @@
   git checkout master
   git fetch origin
             </code></pre>
-            <p><small>Update your local stack with knowledge about remote</small></p>
+            <p>Update your local stack with knowledge about remote</p>
           </section>
 
           <section>
@@ -322,7 +346,7 @@
   git fetch origin
   git pull origin master
             </code></pre>
-            <p><small>Update your local master branch with changes from remote</small></p>
+            <p>Update your local master branch with changes from remote</p>
           </section>
 
           <section>
@@ -335,7 +359,7 @@
   git pull origin master
   git checkout -b newFeature
             </code></pre>
-            <p><small>Create new branch for your feature/change</small></p>
+            <p>Create new branch for your feature/change</p>
           </section>
 
           <section>
@@ -349,7 +373,7 @@
   git commit -m "blah one more time"
   ...
             </code></pre>
-            <p><small>Make and commit new changes</small></p>
+            <p>Make and commit new changes</p>
           </section>
 
           <section>
@@ -362,7 +386,7 @@
   git fetch origin
   git pull origin master
             </code></pre>
-            <p><small>Update your master one more time before push since there might be changes since the last time you updated your local stack</small></p>
+            <p>Update your master one more time before push since there might be changes since the last time you updated your local stack</p>
           </section>
 
           <section>
@@ -372,11 +396,11 @@
                newFeature: o-o-x-x-x</code></pre>
             <pre><code contenteditable>
   git merge newFeature
-  if there is a conflict then resolve it
-  Resolution will be a separate commit
   git push origin master
             </code></pre>
-            <p><small>Merge your branch into master and push it to the remote</small></p>
+            <p>Merge your branch into master and push it to the remote</p>
+            <p>If there is a conflict then resolve it.</p>
+            <p>Resolution will be a separate commit</p>
           </section>
 
           <section>
@@ -384,7 +408,7 @@
             <pre><code contenteditable>   origin      master: o-o-o-y</code></pre>
             <pre><code contenteditable>   local     * master: o-o-o-y
                newFeature: o-o-x-x-x</code></pre>
-            <p><small>"y" will be a merge commit for your master which represents "x-x-x" going into your master</small></p>
+            <p>"y" will be a merge commit for your master which represents "x-x-x" changes</p>
           </section>
         </section>
 
