@@ -92,7 +92,7 @@
           </section>
 
           <section>
-            <h2>Setting up a new directory</h2>
+            <h2>Setting up a new directory with a project</h2>
             <pre><code contenteditable>
   mkdir my-project
   ...
@@ -122,19 +122,19 @@
             </code></pre>
             <p><small>List existing branches and remotes</small></p>
             <pre><code contenteditable>
-  git checkout myLocalBranch
+  git checkout localBranch
             </code></pre>
             <p><small>Switching between branches</small></p>
           </section>
 
           <section>
-            <h2>Keep your local code updated</h2>
+            <h2>Keep your local code updated with a remote</h2>
             <pre><code contenteditable>
-  git fetch remotename
+  git fetch remoteName
   ...
-  git checkout myLocalBranch
+  git checkout localBranch
   ...
-  git pull remoteName myRemoteBranch
+  git pull remoteName remoteBranch
             </code></pre>
             <p><small>Let me show you something more familiar -></small></p>
             <pre><code contenteditable>
@@ -150,7 +150,7 @@
           <section>
             <h2>I want to create a local branch based on the existing remote branch</h2>
             <pre><code contenteditable>
-  git checkout -b myLocalBranch remote/myRemoteBranch
+  git checkout -b localBranch remote/remoteBranch
             </code></pre>
             <p><small>Let me show you something more familiar -></small></p>
             <pre><code contenteditable>
@@ -163,22 +163,22 @@
             <h2>Nope! Actually I wanted to create a branch based on a local one</h2>
             <p><small>Aha! Gotcha, not a big deal</small></p>
             <pre><code contenteditable>
-  git checkout myLocalBranch
+  git checkout localBranch
   ...
-  git checkout -b myNewBranch
+  git checkout -b newBranch
             </code></pre>
             <p><small>Let me show you something more familiar -></small></p>
             <pre><code contenteditable>
   git checkout master
   ...
-  git checkout -b newFeatureBranch
+  git checkout -b newFeature
             </code></pre>
           </section>
 
           <section>
             <h2>Branch deletion</h2>
             <pre><code contenteditable>
-  git branch -D myLocalBranch
+  git branch -D localBranch
             </code></pre>
             <p><small>It will remove your branch without any questions. Small d will prevent branch from deletion if its changes are not present in the master</small></p>
             <p><small>Take a look at my Big D. It is all matter of taste and size does not matter so far if you know what you are doing.</small></p>
@@ -221,20 +221,6 @@
   git diff
             </code></pre>
             <p><small>Will show you all changes you have done. They are better be good!</small></p>
-          </section>
-
-          <section>
-            <h2>Step 3: A general idea for your commit</h2>
-            <p><small>Think of "git add" as a process of packing your items into a box ready to be sent to your friends.</a></small></p>
-            <p><small>While "git commit" would be a process of sealing the box.</a></small></p>
-            <p><small>While "git push" would be you sending.</a></small></p>
-          </section>
-
-          <section>
-            <h2>Step 3: A general idea for your commit</h2>
-            <p><small>You can put many items in a box. (add)</a></small></p>
-            <p><small>You look only into one box at a time. (commit)</a></small></p>
-            <p><small>You can send many boxes. (push)</a></small></p>
           </section>
 
           <section>
@@ -284,11 +270,11 @@
             <h2>Step 5: It is the time of sharing. (Push)</h2>
             <p><small>This command will push your current local branch to the remote.</small></p>
             <pre><code contenteditable>
-  git push remote myLocalBranch
+  git push remoteName localBranch
             </code></pre>
             <p><small>Let me show you something more familiar</small></p>
             <pre><code contenteditable>
-  git push origin myNewAwesomeFeature
+  git push origin newFeature
             </code></pre>
             <p><small>Or something even more familiar</small></p>
             <pre><code contenteditable>
@@ -298,11 +284,25 @@
           </section>
 
           <section>
+            <h2>A general idea for your commits</h2>
+            <p><small>Think of "git add" as a process of packing your items into a box ready to be sent to your friends.</a></small></p>
+            <p><small>While "git commit" would be a process of sealing the box.</a></small></p>
+            <p><small>While "git push" would be you sending.</a></small></p>
+          </section>
+
+          <section>
+            <h2>A general idea for your commits (cont.)</h2>
+            <p><small>You can put many items in a box. (add)</a></small></p>
+            <p><small>You look only into one box at a time. (commit)</a></small></p>
+            <p><small>You can send many boxes. (push)</a></small></p>
+          </section>
+
+          <section>
             <h2>Reset ALL changes</h2>
             <pre><code contenteditable>
   git reset --hard
             </code></pre>
-            <p><small>It will reset your local file sytem to HEAD</a></small></p>
+            <p><small>It will reset your local file sytem to a branch's HEAD</a></small></p>
             <p><small>Maybe stash would work for you better?</small></p>
           </section>
 
